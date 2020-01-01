@@ -1,4 +1,8 @@
+<!DOCTYPE HTML>
 <html>
+<head>
+  <meta charset="utf-8">
+</head>
 <body>
   >>비타폴: 아까 말햇던거 잇잖아요
 비타폴 >> ㅇㅇ
