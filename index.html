@@ -15,12 +15,12 @@ serverPort = int(input("사용할 Port를 입력해 주세요.: "))
 sock.bind((serverIp, serverPort)) # 서버의 IP 와 port no. 데이터 받을 준비
 print("listen: ", serverPort , "port")
 while True:
-    data, addr= sock.recvfrom(65535) # 수신 블럭 크기
-    print("ip: ", addr[0], "port:", addr[1], "로 부터 송신된 메시지는 아래와 같습니다.") 
-     # 클라이언트의 ip 와 port
-    print(data.decode())      #data.decode() : str 로 만들어 줌.
-    sock.sendto(data, addr)
-    if data.decode() == "QUIT" : break
+    data, addr= sock.recvfrom(65535) # 수신 블럭 크기
+    print("ip: ", addr[0], "port:", addr[1], "로 부터 송신된 메시지는 아래와 같습니다.")
+    # 클라이언트의 ip 와 port
+    print(data.decode())
+    sock.sendto(data, addr)
+    if data.decode() == "QUIT" : break
 
 </p>
 	<p>client</p>
@@ -37,6 +37,7 @@ while True:
     sock.sendto(data.encode(), (severIp,severPort))  # 송신 (data,
     data, addr = sock.recvfrom(65535)
     print("서버에서 다시 echo 회신된 메세지 : ", data.decode())
-    if data.decode() == "QUIT" : break</p>
+    if data.decode() == "QUIT" : break
+</p>
 </body>
 </html>
