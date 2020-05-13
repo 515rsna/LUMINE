@@ -4,6 +4,39 @@
 	<meta charset="utf=8">
 </head>
 <body>
-	asdf
+	<p>server</p>
+	<p>import socket
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # 서버 소켓 생성
+
+# server
+serverIp = input("서버(내 PC)IP를 입력해 주세요(cmd 창에서 ipconfig 로 확인): ")
+serverPort = int(input("사용할 Port를 입력해 주세요.: "))
+
+sock.bind((serverIp, serverPort)) # 서버의 IP 와 port no. 데이터 받을 준비
+print("listen: ", serverPort , "port")
+while True:
+    data, addr= sock.recvfrom(65535) # 수신 블럭 크기
+    print("ip: ", addr[0], "port:", addr[1], "로 부터 송신된 메시지는 아래와 같습니다.") 
+     # 클라이언트의 ip 와 port
+    print(data.decode())      #data.decode() : str 로 만들어 줌.
+    sock.sendto(data, addr)
+    if data.decode() == "QUIT" : break
+
+</p>
+	<p>client</p>
+	<p>import socket
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # 소켓 생성
+
+sock.bind(('', 0))  # 0 이면 임의의 번호로 포트가 열림.
+severIp = input("서버IP를 입력해 주세요.:")
+severPort = int(input("서버Port를 입력해 주세요.:"))
+                
+while True:
+    data = input("보낼 메시지를 입력하세요.(종료=QUIT):")
+    sock.sendto(data.encode(), (severIp,severPort))  # 송신 (data,
+    data, addr = sock.recvfrom(65535)
+    print("서버에서 다시 echo 회신된 메세지 : ", data.decode())
+    if data.decode() == "QUIT" : break</p>
 </body>
 </html>
