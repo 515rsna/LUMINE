@@ -18,6 +18,12 @@
 	</style>
 </head>
 <body>
+	<h2>Ai기초</h2>
+	<ul>
+		<li>전송될 서버 ip 입력</li>
+		<li>Port 값 통일</li>
+	</ul>
+	<br>
 	<p>server</p>
 	<p>import socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # 서버 소켓 생성
@@ -53,9 +59,6 @@ while True:
     print("서버에서 다시 echo 회신된 메세지 : ", data.decode())
     if data.decode() == "QUIT" : break
 </p>
-	<ul>
-		<li>전송될 서버 ip 입력</li>
-		<li>Port 값 통일</li>
-	</ul>
+<hr>
 </body>
 </html>
